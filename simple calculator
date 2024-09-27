@@ -1,0 +1,38 @@
+def sum(a,b):
+    return a+b
+def sub(a,b):
+    return a-b
+def mul(a,b):
+    return a*b
+def div(a,b):
+    return a/b
+def mod(a,b):
+    return a%b
+print("SIMPLE CALCULATOR")
+while(True):
+    print("please enter 1 for addition ,2 for subtraction, 3 for multiplication ,4 for division ,5 for modulus")
+    operation=int(input("Choose from[1,2,3,4,5]"))
+    if operation not in [1,2,3,4,5]:
+        print("Invalid option")
+        break
+    num1=float(input("enter the first number"))
+    num2=float(input("Enter the second number"))
+    try:
+        if operation==1:
+            print(sum(num1,num2))
+        elif operation==2:
+            print(sub(num1,num2))
+        elif operation==3:
+            print(mul(num1,num2))
+        elif operation==4:
+            print(div(num1,num2))
+        else:
+            print(mod(num1,num2))
+    except ZeroDivisionError:
+        print("A number cannot be divided by 0")
+    choice=int(input("If u want to continue enter 1"))
+    if (choice==1):
+        continue
+    else:
+        break
+print("Thankyou")

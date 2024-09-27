@@ -1,0 +1,27 @@
+import random
+def choice():
+    choices=['rock','paper','scissor']
+    return random.choice(choices)
+def winner(player_choice,computer_choice):
+    if player_choice==computer_choice:
+        return "its a tie"
+    if (player_choice=='rock' and computer_choice=='scissor') or (player_choice=='paper' and computer_choice=='rock') or (player_choice=='scissor' and computer_choice=='paper'):
+        return "yeh!!!! you win"
+    else:
+        return "you lose"
+print("rock,paper,scissors")
+while(True):
+    player_choice=input("ENTER ROCK ,PAPER, OR SCISSOR").lower()
+    if player_choice not in ['rock','paper','scissor']:
+        print("Invalid choice")
+        continue
+    computer_choice=choice()
+    print("computer choice:",computer_choice)
+    result=winner(player_choice,computer_choice)
+    print(result)
+    play_again=int(input("do you want to play again 1"))
+    if play_again!=1:
+        break
+    else:
+        continue
+print("thanks for playing")

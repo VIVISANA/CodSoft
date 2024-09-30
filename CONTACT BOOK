@@ -1,0 +1,49 @@
+# A CONTACT BOOK
+def display_contacts(contacts):
+   if not contacts:
+        print("No contacts available.")
+    else:
+        print("Your Contacts:")
+        for name, phone in contacts.items():
+            print(f"{name}: {phone}")
+
+def main():
+    contacts = {}
+
+    while True:
+        print("\nOptions: add, view, search, update, delete, exit")
+        command = input("Enter a command: ").strip().lower()
+
+        if command == 'add':
+            name = input("Enter the contact name: ")
+            phone = input("Enter the contact phone number: ")
+            contacts[name] = phone
+            print(f"Contact {name} added.")
+        elif command == 'view':
+            display_contacts(contacts)
+        elif command == 'search':
+            name = input("Enter the contact name to search: ")
+            print(f"{name}: {contacts.get(name, 'Contact not found.')}")
+        elif command == 'update':
+            name = input("Enter the contact name to update: ")
+            if name in contacts:
+                new_phone = input("Enter the new phone number: ")
+                contacts[name] = new_phone
+                print(f"Contact {name} updated.")
+            else:
+                print("Contact not found.")
+        elif command == 'delete':
+            name = input("Enter the contact name to delete: ")
+            if name in contacts:
+                del contacts[name]
+                print(f"Contact {name} deleted.")
+            else:
+                print("Contact not found.")
+        elif command == 'exit':
+            print("Exiting the contact book.")
+            break
+        else:
+            print("Unknown command.")
+
+if __name__ == "__main__":
+    main()
